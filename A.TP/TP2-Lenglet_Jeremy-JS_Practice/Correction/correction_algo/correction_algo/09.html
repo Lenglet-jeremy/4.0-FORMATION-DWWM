@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const students = [
+  { name: "Alice", notes: [20, 15, 9.5], coeff: [3, 3, 12] },
+  { name: "Bob", notes: [10, 7, 15], coeff: [3, 7, 5] },
+  { name: "Charlie", notes: [12, 13, 14], coeff: [2, 4, 10] },
+];
+
+const MoyennePond = (notes = [], coeff = []) => {
+  const [dividende, diviseur] = coeff.reduce(
+    (acc, val, i) => {
+      acc[0] += notes[i] * val;
+      acc[1] += val;
+      return acc;
+    },
+    [0, 0]
+  );
+  return dividende / diviseur;
+};
+
+students.reduce((acc, val, i) => {
+  alert(
+    `La moyenne pondérée de ${val.name} est de ${MoyennePond(
+      val.notes,
+      val.coeff
+    ).toFixed(2)}/20`
+  );
+}, students[0]);
+    </script>
+</body>
+</html>

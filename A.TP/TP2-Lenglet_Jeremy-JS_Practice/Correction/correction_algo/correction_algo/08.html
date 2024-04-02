@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const movie = {
+        title: "Fight Club",
+        actors: ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
+        director: "David Fincher",
+        year: 1999,
+        duration: 139,
+        rating: {
+          imdb: 8.8,
+          sensCritique: 8.2,
+          allocine: 7.2,
+        },
+        numberLike: 16503,
+        like: function () {
+          movie.numberLike++;
+        },
+        unlike: function () {
+          movie.numberLike--;
+        },
+        seen: true,
+      };
+      movie.actors[2] = "Ryan Gosling";
+      for (let i = 1; i <= 5; i++) {
+        movie.like();
+      }
+      movie.seen = !movie.seen;
+      console.log(movie);
+    </script>
+  </body>
+</html>

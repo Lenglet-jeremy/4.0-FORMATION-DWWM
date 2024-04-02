@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const persons = [
+        { nom: "Alice", age: 25, aimeMarcher: true },
+        { nom: "Bob", age: 30, aimeMarcher: false },
+        { nom: "Charlie", age: 35, aimeMarcher: true },
+        { nom: "Diana", age: 40, aimeMarcher: false },
+        { nom: "Edward", age: 20, aimeMarcher: true },
+      ];
+
+      const walkinPersons = persons
+        .filter((person) => person.aimeMarcher === true)
+        .map((person) => console.log(`Hello ${person.nom}`));
+    </script>
+  </body>
+</html>

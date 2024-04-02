@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // initialisation des variables
+      let total = 0;
+      let monScore;
+      let cand2, cand3, cand4;
+
+      //  boucle pour demander les scores
+      do {
+        monScore = Number(prompt("Score ?"));
+        cand2 = Number(prompt("Score 2 ?"));
+        cand3 = Number(prompt("Score 3 ?"));
+        cand4 = Number(prompt("Score 4 ?"));
+        total = monScore + cand2 + cand3 + cand4;
+
+        // feedback
+        if (total !== 100) {
+          alert("Le total des scores doit être égal à 100");
+        }
+      } while (total !== 100);
+
+      //   vérification des 4 possibilités
+      if (monScore > 50) {
+        alert("élu");
+      } else if (monScore < 12.5 || cand2 > 50 || cand3 > 50 || cand4 > 50) {
+        alert("battu");
+      } else if (monScore > cand2 && monScore > cand3 && monScore > cand4) {
+        alert("ballotage favorable");
+      } else {
+        alert("ballotage défavorable");
+      }
+    </script>
+  </body>
+</html>

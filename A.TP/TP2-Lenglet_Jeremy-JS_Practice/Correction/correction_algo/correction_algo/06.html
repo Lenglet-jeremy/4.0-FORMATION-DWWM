@@ -1,0 +1,28 @@
+function convertMovieTime(seconds) {
+    // 6263
+    // calcul des heures
+    let heures = Math.floor(seconds / 3600); // 1 car 6263 / 3600 = 1.74
+    // récupération des secondes restantes 6263 - 3600 = 2663
+    let reste = seconds % 3600;
+    // calcul des minutes
+    let minutes = Math.floor(reste / 60); // 44.38 soit 44
+    // récupération des secondes restantes
+    reste = reste % 60;
+
+    // affichage du résultat
+    let resultat = "";
+    if (heures > 0) {
+      resultat += heures + " heure" + (heures > 1 ? "s" : "") + " ";
+    }
+    if (minutes > 0) {
+      resultat += minutes + " minute" + (minutes > 1 ? "s" : "") + " ";
+    }
+    if (reste > 0) {
+      resultat += reste + " seconde" + (reste > 1 ? "s" : "") + " ";
+    }
+
+    return resultat;
+  }
+
+  let durée = convertMovieTime(9654);
+  alert(durée);

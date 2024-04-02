@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // on demande et stocke une phrase
+      const phrase = prompt("Ecrivez une phrase");
+      //   on initialise à 1 le nbre de mots car non précédé d'un espace ou apostrophe
+      let nbreMots = 1;
+      //   on boucle sur toutes les lettres de la phrase
+      for (let i = 0; i < phrase.length; i++) {
+        if (phrase[i] === " " || phrase[i] === "'") {
+          // sin on rencontre espace ou apostrophe on incremente
+          nbreMots++;
+        }
+      }
+      alert(`Votre phrase contient ${nbreMots} mots !`);
+    </script>
+  </body>
+</html>

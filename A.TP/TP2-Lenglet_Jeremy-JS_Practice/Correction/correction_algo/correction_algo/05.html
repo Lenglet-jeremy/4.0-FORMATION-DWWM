@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const a = 7;
+      const b = 3.14574;
+      const c = 9.9999999;
+      let d;
+      let e = null;
+      let f = "John Doe";
+
+      function test(param) {
+        console.log(typeof param);
+        if (typeof param !== "number") {
+          console.log(`${param} n'est pas un nombre`);
+        } else if (Number.isInteger(param)) {
+          console.log(`${param} est un entier`);
+        } else {
+          console.log(`${parseFloat(param.toFixed(2))} est un décimal arrondi`);
+        }
+      }
+      test(a);
+      test(b);
+      test(c);
+      test(d);
+      test(e);
+      test(f);
+    </script>
+  </body>
+</html>

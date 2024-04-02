@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Amélioration possible
+      // Utilisation d'un regex pour vérifier que le mot ne contient que des lettres sinon feedback et on repose la question
+      let isValid = false;
+      let mot;
+      while (!isValid) {
+        mot = prompt("Entrez un mot contenant uniquement des lettres : ");
+
+        if (/^[A-Za-zÀ-ÿ]+$/.test(mot)) {
+          isValid = true;
+        } else {
+          alert("Le mot ne doit contenir que des lettres");
+        }
+      }
+
+      mot = mot
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+      alert(`Ce mot fait ${mot.length} lettres !`);
+
+      let newLetter = [];
+      for (let i = 0; i < mot.length; i++) {
+        if (!newLetter.includes(mot[i])) {
+          newLetter.push(mot[i]);
+        }
+      }
+      alert(`Il contient les différentes lettres ${newLetter.join(", ")}`);
+    </script>
+  </body>
+</html>
