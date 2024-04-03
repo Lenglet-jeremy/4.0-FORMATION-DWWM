@@ -21,18 +21,16 @@ const popularSeriesRequest  = `${BASE_URL}${SERIES}/${POPULARITE}?${API_KEY}&${L
 const recentSeriesRequest   = `${BASE_URL}${SERIES}/${RECENT}?${API_KEY}&${LANGUAGE}&${PAGES}`;
 const upComingSeriesRequest = `${BASE_URL}${SERIES}/${AVENIR}?${API_KEY}&${LANGUAGE}&${PAGES}`;
 
+const popularSection = document.createElement("p");
 const body = document.querySelector("body");
 
-const media = document.createElement("div");
-media.classList.add("Media");
+const popular = document.createElement("div");
+popular.classList.add("Popular");
 
-async function fetchMovies() {
+async function fetchMovies(URL) {
     try {
 
-        const popularSection = document.createElement("p");
-        popularSection.innerText = "Les films populaires"
-
-        const response = await fetch(`${popularMoviesRequest}`);
+        const response = await fetch(`${URL}`);
         const data = await response.json();
         
         if (!response.ok){
@@ -40,16 +38,15 @@ async function fetchMovies() {
         }
 
         data.results.forEach(movie => {
-            media.append(createMediaElement(movie));
+            popular.append(createpopularElement(movie));
           });
-        body.append(popularSection, media)
 
     } catch (error) {
         console.error('Une erreur s\'est produite : ', error.message);
     }
 }
 
-const createMediaElement = (movie) => {
+const createpopularElement = (movie) => {
 
     const card = document.createElement("div");
     card.classList.add("Card");
@@ -71,4 +68,10 @@ const createMediaElement = (movie) => {
     return card;
 }
 
-body.append(fetchMovies());
+popularSection.innerText = "Les films populaires"
+fetchMovies(popularMoviesRequest);
+body.append(popularSection, popular)
+
+popularSection.innerText = "Les films populaires"
+fetchMovies(popularMoviesRequest);
+body.append(popularSection, popular)
