@@ -11,7 +11,7 @@ p{
     font-size: 50px;
 }
 
-.Popular {
+.Section {
     display: flex;
     overflow-x: auto;
 }

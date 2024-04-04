@@ -25,7 +25,8 @@ const body = document.querySelector("body");
 
 const popularSection = document.createElement("p");
 const popularDiv = document.createElement("div");
-popularDiv.classList.add("Popular");
+popularDiv.classList.add("Section");
+
 
 async function fetchMovies(URL) {
     try {
