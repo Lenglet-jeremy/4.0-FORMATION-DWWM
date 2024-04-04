@@ -4,7 +4,7 @@ const BASE_URL = "https://api.themoviedb.org/3/";
 const FILMS = "movie";
 const SERIES = "tv";
 const POPULARITE = "top_rated";
-const RECENT = "release_date";
+const RECENT = "release_date.desc";
 const AVENIR = "upcoming";
 const LANGUAGE = "language=fr-FR";
 const PAGES = "page=1";
@@ -14,21 +14,27 @@ const BASE_IMG = "https://image.tmdb.org/t/p/w500";
 let ID_FILM_SERIE = "";
 let IMG_LINK = BASE_IMG + ID_FILM_SERIE;
 
-const popularMoviesRequest  = `${BASE_URL}${FILMS}/${POPULARITE}?${API_KEY}&${LANGUAGE}&${PAGES}`;
-const recentMoviesRequest   = `${BASE_URL}${FILMS}/${RECENT}?${API_KEY}&${LANGUAGE}&${PAGES}`;
-const upComingMoviesRequest = `${BASE_URL}${FILMS}/${AVENIR}?${API_KEY}&${LANGUAGE}&${PAGES}`;
-const popularSeriesRequest  = `${BASE_URL}${SERIES}/${POPULARITE}?${API_KEY}&${LANGUAGE}&${PAGES}`;
-const recentSeriesRequest   = `${BASE_URL}${SERIES}/${RECENT}?${API_KEY}&${LANGUAGE}&${PAGES}`;
-const upComingSeriesRequest = `${BASE_URL}${SERIES}/${AVENIR}?${API_KEY}&${LANGUAGE}&${PAGES}`;
+const popularMoviesRequest  = `${BASE_URL}${FILMS}/${POPULARITE}?${API_KEY}&${LANGUAGE}`;
+const recentMoviesRequest   = `${BASE_URL}discover/${FILMS}?${RECENT}&${API_KEY}&${LANGUAGE}`;
+const upComingMoviesRequest = `${BASE_URL}${FILMS}/${AVENIR}?${API_KEY}&${LANGUAGE}`;
+const popularSeriesRequest  = `${BASE_URL}${SERIES}/${POPULARITE}?${API_KEY}&${LANGUAGE}`;
+const recentSeriesRequest   = `${BASE_URL}discover/${SERIES}?${RECENT}&${API_KEY}&${LANGUAGE}`;
+const upCominSeriesRequest = `${BASE_URL}${SERIES}/popular?${API_KEY}&${LANGUAGE}`;
 
 const body = document.querySelector("body");
 
-const popularSection = document.createElement("p");
-const popularDiv = document.createElement("div");
-popularDiv.classList.add("Section");
+let popularSection = "";
 
+async function displayPopularMovies(parag, URL) {
+    const sectionParag = document.createElement("p");
+    sectionParag.innerText = parag
+    const popularSection = await fetchMovies(URL);
+    body.append(sectionParag, popularSection);
+}
 
 async function fetchMovies(URL) {
+    const Section = document.createElement("div");
+    Section.classList.add("Section");
     try {
 
         const response = await fetch(`${URL}`);
@@ -39,12 +45,13 @@ async function fetchMovies(URL) {
         }
 
         data.results.forEach(movie => {
-            popularDiv.append(createpopularElement(movie));
+            Section.append(createpopularElement(movie));
           });
 
     } catch (error) {
         console.error('Une erreur s\'est produite : ', error.message);
     }
+    return Section;
 }
 
 const createpopularElement = (movie) => {
@@ -57,7 +64,10 @@ const createpopularElement = (movie) => {
     cover.style.width = "200px";
 
     const titre = document.createElement("h3");
-    titre.innerText = movie.title;
+    if (movie.name)
+        titre.innerText = movie.name;
+    else
+        titre.innerText = movie.title;
     titre.style.color = "#FFFFFF";
 
     const note = document.createElement("h4");
@@ -69,6 +79,14 @@ const createpopularElement = (movie) => {
     return card;
 }
 
-popularSection.innerText = "Les films populaires"
-fetchMovies(popularMoviesRequest);
-body.append(popularSection, popularDiv)
+console.log(upComingMoviesRequest);
+console.log(upCominSeriesRequest);
+
+displayPopularMovies("Les films populaires", popularMoviesRequest);
+displayPopularMovies("Les films recent", recentMoviesRequest);
+displayPopularMovies("Les films à venir", upComingMoviesRequest);
+
+displayPopularMovies("Les series populaires", popularSeriesRequest);
+displayPopularMovies("Les series recent", recentSeriesRequest);
+displayPopularMovies("Les series à venir", upCominSeriesRequest);
+
