@@ -21,11 +21,11 @@ const popularSeriesRequest  = `${BASE_URL}${SERIES}/${POPULARITE}?${API_KEY}&${L
 const recentSeriesRequest   = `${BASE_URL}${SERIES}/${RECENT}?${API_KEY}&${LANGUAGE}&${PAGES}`;
 const upComingSeriesRequest = `${BASE_URL}${SERIES}/${AVENIR}?${API_KEY}&${LANGUAGE}&${PAGES}`;
 
-const popularSection = document.createElement("p");
 const body = document.querySelector("body");
 
-const popular = document.createElement("div");
-popular.classList.add("Popular");
+const popularSection = document.createElement("p");
+const popularDiv = document.createElement("div");
+popularDiv.classList.add("Popular");
 
 async function fetchMovies(URL) {
     try {
@@ -38,7 +38,7 @@ async function fetchMovies(URL) {
         }
 
         data.results.forEach(movie => {
-            popular.append(createpopularElement(movie));
+            popularDiv.append(createpopularElement(movie));
           });
 
     } catch (error) {
@@ -70,8 +70,8 @@ const createpopularElement = (movie) => {
 
 popularSection.innerText = "Les films populaires"
 fetchMovies(popularMoviesRequest);
-body.append(popularSection, popular)
+body.append(popularSection, popularDiv)
 
-popularSection.innerText = "Les films populaires"
-fetchMovies(popularMoviesRequest);
-body.append(popularSection, popular)
+// popularSection.innerText = "Les films populaires"
+// fetchMovies(popularMoviesRequest);
+// body.append(popularSection, popular)
