@@ -28,7 +28,9 @@ let popularSection = "";
 async function displayPopularMovies(parag, URL) {
     const sectionParag = document.createElement("p");
     sectionParag.innerText = parag
+
     const popularSection = await fetchMovies(URL);
+    
     body.append(sectionParag, popularSection);
 }
 
