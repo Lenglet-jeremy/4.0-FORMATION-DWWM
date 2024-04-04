@@ -72,7 +72,3 @@ const createpopularElement = (movie) => {
 popularSection.innerText = "Les films populaires"
 fetchMovies(popularMoviesRequest);
 body.append(popularSection, popularDiv)
-
-// popularSection.innerText = "Les films populaires"
-// fetchMovies(popularMoviesRequest);
-// body.append(popularSection, popular)
