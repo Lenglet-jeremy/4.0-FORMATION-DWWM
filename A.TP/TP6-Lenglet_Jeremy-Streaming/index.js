@@ -29,8 +29,8 @@ const navBarBuilder = () =>{
     navBar = document.createElement("nav");
     navBar.classList.add("NavBar");
     navBar.style.height = "60px"
-    navbar.style.backgroundColor = "#FF0000";
-    
+    navBar.style.backgroundColor = "#FF0000";
+    body.append(navBar)
 
 }
 
@@ -89,6 +89,8 @@ const createpopularElement = (movie) => {
     card.append(cover, titre, note);
     return card;
 }
+
+navBarBuilder()
 
 displayPopularMovies("Les films populaires", popularMoviesRequest);
 displayPopularMovies("Les films recent", recentMoviesRequest);
