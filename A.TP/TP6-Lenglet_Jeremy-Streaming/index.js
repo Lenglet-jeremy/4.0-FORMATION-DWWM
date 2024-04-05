@@ -25,6 +25,15 @@ const body = document.querySelector("body");
 
 let popularSection = "";
 
+const navBarBuilder = () =>{
+    navBar = document.createElement("nav");
+    navBar.classList.add("NavBar");
+    navBar.style.height = "60px"
+    navbar.style.backgroundColor = "#FF0000";
+    
+
+}
+
 async function displayPopularMovies(parag, URL) {
     const sectionParag = document.createElement("p");
     sectionParag.innerText = parag
@@ -80,9 +89,6 @@ const createpopularElement = (movie) => {
     card.append(cover, titre, note);
     return card;
 }
-
-console.log(upComingMoviesRequest);
-console.log(upCominSeriesRequest);
 
 displayPopularMovies("Les films populaires", popularMoviesRequest);
 displayPopularMovies("Les films recent", recentMoviesRequest);
