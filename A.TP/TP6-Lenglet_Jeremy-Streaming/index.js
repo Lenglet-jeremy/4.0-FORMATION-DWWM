@@ -19,7 +19,7 @@ const recentMoviesRequest   = `${BASE_URL}discover/${FILMS}?${RECENT}&${API_KEY}
 const upComingMoviesRequest = `${BASE_URL}${FILMS}/${AVENIR}?${API_KEY}&${LANGUAGE}`;
 const popularSeriesRequest  = `${BASE_URL}${SERIES}/${POPULARITE}?${API_KEY}&${LANGUAGE}`;
 const recentSeriesRequest   = `${BASE_URL}discover/${SERIES}?${RECENT}&${API_KEY}&${LANGUAGE}`;
-const upCominSeriesRequest = `${BASE_URL}${SERIES}/popular?${API_KEY}&${LANGUAGE}`;
+const upCominSeriesRequest = `${BASE_URL}discover/${SERIES}?on_the_air&${API_KEY}&${LANGUAGE}`;
 
 const body = document.querySelector("body");
 
