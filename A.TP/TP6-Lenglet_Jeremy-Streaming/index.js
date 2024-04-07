@@ -30,6 +30,9 @@ const navBarBuilder = () =>{
     navBar.classList.add("NavBar");
     navBar.style.height = "60px"
     navBar.style.backgroundColor = "#FF0000";
+
+    title = document.createElement("p");
+    
     body.append(navBar)
 
 }
