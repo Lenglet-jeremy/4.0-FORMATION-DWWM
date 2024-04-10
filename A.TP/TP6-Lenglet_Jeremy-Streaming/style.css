@@ -42,6 +42,10 @@ p{
     overflow-x: auto;
 }
 
+.Menu{
+    display: none;
+}
+
 .Card {
     border: 1px solid #FFFFFF;
     margin: 20px;
