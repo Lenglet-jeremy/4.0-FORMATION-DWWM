@@ -23,19 +23,21 @@ const upCominSeriesRequest = `${BASE_URL}discover/${SERIES}?on_the_air&${API_KEY
 
 const body = document.querySelector("body");
 
-let popularSection = "";
+const menuIcon = document.querySelector('.Menu');
+const navBarRight = document.querySelector('.NavBarRight');
 
-const navBarBuilder = () =>{
-    navBar = document.createElement("nav");
-    navBar.classList.add("NavBar");
-    navBar.style.height = "60px"
-    navBar.style.backgroundColor = "#FF0000";
+menuIcon.addEventListener('click', () => {
+    navBarRight.classList.toggle('visible');
+});
 
-    title = document.createElement("p");
-    
-    body.append(navBar)
+// Ajoutez une écoute d'événement pour redimensionner l'écran
+window.addEventListener('resize', () => {
+    // Si la largeur de l'écran est supérieure à 800px et la classe visible est présente, la supprimer
+    if (window.innerWidth > 800 && navBarRight.classList.contains('visible')) {
+        navBarRight.classList.remove('visible');
+    }
+});
 
-}
 
 async function displayPopularMovies(parag, URL) {
     const sectionParag = document.createElement("p");
@@ -60,6 +62,7 @@ async function fetchMovies(URL) {
 
         data.results.forEach(movie => {
             Section.append(createpopularElement(movie));
+            console.log(movie);
           });
 
     } catch (error) {
@@ -77,23 +80,32 @@ const createpopularElement = (movie) => {
     cover.src = `${BASE_IMG}${movie.poster_path}`;
     cover.style.width = "200px";
 
-    const titre = document.createElement("h3");
+    const titre = document.createElement("h2");
     if (movie.name)
         titre.innerText = movie.name;
     else
         titre.innerText = movie.title;
     titre.style.color = "#FFFFFF";
 
-    const note = document.createElement("h4");
+    const note = document.createElement("h3");
     note.classList.add("Note")
     note.innerText = movie.vote_average.toFixed(1);
     note.style.color = "#FFFFFF";
 
-    card.append(cover, titre, note);
+    const votants = document.createElement("h4");
+    votants.classList.add("Votant");
+    votants.innerText = movie.vote_count
+
+    if(movie.release_date){
+        const releaseDate = document.createElement("h5");
+        releaseDate.classList.add("releaseDate");
+        releaseDate.innerText = movie.release_date
+    
+        card.append(cover, titre, note, votants, releaseDate);
+    } else 
+        card.append(cover, titre, note, votants);
     return card;
 }
-
-navBarBuilder()
 
 displayPopularMovies("Les films populaires", popularMoviesRequest);
 displayPopularMovies("Les films recent", recentMoviesRequest);
