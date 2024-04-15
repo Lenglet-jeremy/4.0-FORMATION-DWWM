@@ -1,0 +1,10 @@
+.title{
+    color: aqua;
+    span {
+        color: red;
+        font-weight: 700;
+        &:hover{
+            font-size:50px
+        } 
+    }
+}
