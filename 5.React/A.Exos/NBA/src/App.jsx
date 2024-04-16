@@ -1,8 +1,8 @@
 import './App.css'
-import Title from "./.components/Title"
-import Welcome from "./.components/Welcome"
-import East from "./.components/East"
-import West from "./.components/West"
+import Title from "./components/Title"
+import Welcome from "./components/Welcome"
+import East from "./components/East"
+import West from "./components/West"
 
 const teams = [
   {
@@ -217,36 +217,48 @@ const teams = [
   },
 ];
 
+const person =[
+  {
+    userName : "John",
+    userAge : 18,
+    userLicensed : "Licence"
+  }
+]
+
 function App() {
 
   return (
     <>
     <div>
+
       <Title />
       <Welcome User={"John"}/>
-      
+
+      {/* CONFERENCE EST */}
       <h3 className="Conf">Conférence Est</h3>
       <div class="CardContainer">
+        
         {teams
           .filter((conf) => conf.conference == "Est")
+
           .map((card, index) => (
             <East City={card.club} 
                   Name={card.name} 
-                  Logo={card.logo} />))
-          
-        }
+                  Logo={card.logo} />))}
       </div>
       
-      <h3 className="Conf">Conférence Est</h3>
+
+      {/* CONFERENCE OUEST */}
+      <h3 className="Conf">Conférence Ouest</h3>
       <div class="CardContainer">
+
         {teams
           .filter((conf) => conf.conference == "Ouest")
+
           .map((card, index) => (
             <West City={card.club} 
                   Name={card.name} 
-                  Logo={card.logo} />))
-          
-        }
+                  Logo={card.logo} />))}
       </div>
     </div>
     </>
