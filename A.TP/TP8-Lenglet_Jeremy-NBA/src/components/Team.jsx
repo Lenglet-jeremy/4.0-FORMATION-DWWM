@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Team.module.scss";
 import DisplayConf from "./DisplayConf";
 
-export default function Team({ person, teams }) {
+export default function Team({ person, teams, filter  }) {
   //   console.log({ person });
   //   console.log({ teams });
 
@@ -17,9 +17,7 @@ export default function Team({ person, teams }) {
   }
 
   return (
-    <div className="d-flex flex-column align-items-center jc-start mt-30"
-         style={{ width: "100%" }}
-    >
+    <div className="d-flex flex-column align-items-center jc-start mt-30" style={{ width: "100%" }}>
 
         <div className={`d-flex flex-row ${styles.presentation}`}>
             <h2> {welcome} </h2>
@@ -33,7 +31,7 @@ export default function Team({ person, teams }) {
 
       {licensed ? (
         <>
-        <DisplayConf teams={teams}/>
+        <DisplayConf teams={teams} filter={filter} />
         </>
       ) : (
         <p className="text-error">Vous devez être connecté</p>

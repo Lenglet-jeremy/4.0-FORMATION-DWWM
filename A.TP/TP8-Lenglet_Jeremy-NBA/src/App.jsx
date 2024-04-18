@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./App.module.scss";
 import Team from "./components/Team";
 import Header from "./components/Header"
@@ -215,6 +216,8 @@ function App() {
       logo: "https://upload.wikimedia.org/wikipedia/en/a/a2/San_Antonio_Spurs.svg",
     },
   ];
+  
+  const [filter, setFilter] = useState("All");
 
   const person = {
     name: "John",
@@ -223,8 +226,8 @@ function App() {
   };
   return (
     <div className={`d-flex align-items-center flex-column  ${styles.main}`}>
-      <Header />
-      <Team person={person} teams={teams} />
+      <Header onFilterChange={setFilter} activeFilter={filter} />
+      <Team person={person} teams={teams} filter={filter} />
     </div>
   );
 }
