@@ -16,10 +16,9 @@ export default function Team({ person, teams, view, licensed, login }) {
         </button>
       </div>
       {licensed ? (
-        view === "all" ? (
+        view === "All" ? (
           <>
-            <DisplayConf teams={teams} view="East" />
-            <DisplayConf teams={teams} view="West" />
+            <DisplayConf teams={teams} view="All" />
           </>
         ) : view === "East" ? (
           <DisplayConf teams={teams} view={view} />

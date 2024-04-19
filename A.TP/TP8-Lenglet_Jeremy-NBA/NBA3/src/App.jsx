@@ -218,7 +218,7 @@ function App() {
   ];
 
   const [licensed, setLicensed] = useState(true);
-  const [view, setView] = useState("all");
+  const [view, setView] = useState("All");
 
   function changeView(value) {
     setView(value);
@@ -235,12 +235,11 @@ function App() {
   return (
     <div className={`d-flex align-items-center flex-column  ${styles.main}`}>
       <Header changeView={changeView} />
-      <Team
-        person={person}
-        teams={teams}
-        view={view}
-        licensed={licensed}
-        login={login}
+      <Team person={person}
+            teams={teams}
+            view={view}
+            licensed={licensed}
+            login={login}
       />
     </div>
   );
