@@ -1,0 +1,19 @@
+@use "../../assets/styles/mixin.scss" as mixin;
+
+.presentation {
+  width: 80%;
+  margin: 0 auto;
+  @include mixin.sm-lt {
+    width: 90%;
+  }
+  background-color: var(--primary);
+  padding: 30px;
+  color: white;
+}
+
+nav{
+  display: block;
+  @include mixin.sm-lt{
+    display: none;
+  }
+}
