@@ -12,13 +12,13 @@
 .btn-primary {
   background-color: var(--primary);
   color: white;
-  border: 2px solid var(--orange);
+  border: 2px solid var(--secondary);
 }
 
 .btn-reverse-primary {
   border: 2px solid var(--primary);
   color: var(--primary);
-  background-color: var(--orange);
+  background-color: var(--secondary);
 }
 
 .card {

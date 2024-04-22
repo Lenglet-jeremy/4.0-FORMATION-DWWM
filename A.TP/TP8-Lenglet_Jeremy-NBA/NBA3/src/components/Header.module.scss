@@ -1,15 +1,22 @@
-.header {
+header {
   width: 80%;
   margin: 0 auto;
   height: 70px;
-  border-bottom: 2px solid orange;
-  input{
-    display: flex;
-    background-color: #00000033;
-    width: 200px;
-    height: 30px;
-    border-color: orange;
-    border-radius: 15px;
+  border-bottom: 2px solid var(--secondary);
+  .searchBar {
+    padding: 10px 15px;
+    border: 2px solid var(--secondary);
+    border-radius: 20px;
+    background-color: var(--primary);
+    input {
+      outline: 0;
+      border: 0;
+      background-color: var(--primary);
+      color: var(--secondary);
+      &::placeholder {
+        color: white;
+      }
+    }
   }
   .mainTitle {
     color: orange;
