@@ -13,7 +13,7 @@ function App() {
   setTimeout(() => {
     setIsLoading(false);
     setTeams(datas);
-  }, 5000);
+  }, 500);
   const [licensed, setLicensed] = useState(true);
   const [view, setView] = useState("all");
   const [filter, setFilter] = useState("");

@@ -29,7 +29,7 @@ export default function Header({ changeView, handleInput }) {
         showMenu && (
           <>
           <div className="calc" on onClick={() => setShowMenu(false)}></div>
-            <HeaderMobile />
+            <HeaderMobile changeView={changeView} setShowMenu={setShowMenu} />
           </>
 
         )
