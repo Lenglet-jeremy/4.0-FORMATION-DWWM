@@ -1,0 +1,74 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+    body{
+        min-width: 100vw;
+        min-height: 100vh;
+        background: radial-gradient(70% 70% at 50% 100%, #000818 0%, #000000 100%);
+    }
+
+    list-style-type: none;
+
+    a{
+        text-decoration: none;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+}
+
+
+
+/* HEADER */
+.NavBar{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #ffffff0d;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .LeftSide{
+        display : flex;
+        flex-direction: row;
+        margin-left: 15px;
+
+        li{margin-left: 20px;}
+
+        .SkillsDropDown{
+            background-color: #ffffff0d;
+            display: none;
+        }
+
+        .Skills:hover .SkillsDropDown{
+            display: block;
+        }
+
+
+        .SubjectsDropDown{
+            background-color: #ffffff0d;
+            display: none;
+        }
+
+        .Subjects:hover .SubjectsDropDown{
+            display: block;
+        }
+    }
+
+    .RightSide{
+        display : flex;
+        flex-direction: row;
+        margin-right: 15px;
+
+        li{margin-right: 20px;}
+    }
+}
+/* /HEADER */
+
+/* MAIN */
+/* /MAIN */
+
+/* FOOTER */
+/* /FOOTER */
+
