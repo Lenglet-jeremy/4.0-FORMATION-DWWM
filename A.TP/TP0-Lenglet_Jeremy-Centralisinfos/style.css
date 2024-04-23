@@ -89,10 +89,6 @@
 /* MAIN */
 .Main{
 
-    display: flex;
-    flex-direction: column;
-    flex: 1 1;
-
     .ExternalLinks{
         background-color: #FFFFFF0d;
 
