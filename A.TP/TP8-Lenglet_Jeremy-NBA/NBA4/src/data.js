@@ -1,9 +1,10 @@
 export const datas = [
-{
+  {
     id: 1,
     name: "Boston",
     club: "Celtics",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/8/8f/Boston_Celtics.svg",
   },
   {
@@ -11,6 +12,7 @@ export const datas = [
     name: "Brooklyn",
     club: "Nets",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Brooklyn_Nets_newlogo.svg",
   },
   {
@@ -18,6 +20,7 @@ export const datas = [
     name: "New York",
     club: "Knicks",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/2/25/New_York_Knicks_logo.svg",
   },
   {
@@ -25,6 +28,7 @@ export const datas = [
     name: "Philadelphia",
     club: "76ers",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/0/0e/Philadelphia_76ers_logo.svg",
   },
   {
@@ -32,6 +36,7 @@ export const datas = [
     name: "Toronto",
     club: "Raptors",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/3/36/Toronto_Raptors_logo.svg",
   },
   {
@@ -39,6 +44,7 @@ export const datas = [
     name: "Chicago",
     club: "Bulls",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/6/67/Chicago_Bulls_logo.svg",
   },
   {
@@ -46,6 +52,7 @@ export const datas = [
     name: "Cleveland",
     club: "Cavaliers",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cleveland_Cavaliers_logo.svg",
   },
   {
@@ -53,6 +60,7 @@ export const datas = [
     name: "Detroit",
     club: "Pistons",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/commons/3/39/Logo_of_the_Detroit_Pistons.png",
   },
   {
@@ -60,6 +68,7 @@ export const datas = [
     name: "Indiana",
     club: "Pacers",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/1/1b/Indiana_Pacers.svg",
   },
   {
@@ -67,6 +76,7 @@ export const datas = [
     name: "Milwaukee",
     club: "Bucks",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/4/4a/Milwaukee_Bucks_logo.svg",
   },
   {
@@ -74,6 +84,7 @@ export const datas = [
     name: "Atlanta",
     club: "Hawks",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/2/24/Atlanta_Hawks_logo.svg",
   },
   {
@@ -81,6 +92,7 @@ export const datas = [
     name: "Charlotte",
     club: "Hornets",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/c/c4/Charlotte_Hornets_%282014%29.svg",
   },
   {
@@ -88,6 +100,7 @@ export const datas = [
     name: "Miami",
     club: "Heat",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/f/fb/Miami_Heat_logo.svg",
   },
   {
@@ -95,6 +108,7 @@ export const datas = [
     name: "Orlando",
     club: "Magic",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/1/10/Orlando_Magic_logo.svg",
   },
   {
@@ -102,6 +116,7 @@ export const datas = [
     name: "Washington",
     club: "Wizards",
     conference: "East",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/0/02/Washington_Wizards_logo.svg",
   },
   {
@@ -109,6 +124,7 @@ export const datas = [
     name: "Denver",
     club: "Nuggets",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/7/76/Denver_Nuggets.svg",
   },
   {
@@ -116,6 +132,7 @@ export const datas = [
     name: "Minneapolis",
     club: "Timberwolves",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/c/c2/Minnesota_Timberwolves_logo.svg",
   },
   {
@@ -123,6 +140,7 @@ export const datas = [
     name: "Oklahoma City",
     club: "Thunder",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/5/5d/Oklahoma_City_Thunder.svg",
   },
   {
@@ -130,6 +148,7 @@ export const datas = [
     name: "Portland",
     club: "Trail Blazers",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/2/21/Portland_Trail_Blazers_logo.svg",
   },
   {
@@ -137,6 +156,7 @@ export const datas = [
     name: "Salt Lake City",
     club: "Jazz",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/0/04/Utah_Jazz_logo_%282016%29.svg",
   },
   {
@@ -144,6 +164,7 @@ export const datas = [
     name: "San Francisco",
     club: "Warriors",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/0/01/Golden_State_Warriors_logo.svg",
   },
   {
@@ -151,6 +172,7 @@ export const datas = [
     name: "Los Angeles",
     club: "Clippers",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/fr/b/b8/Clippers_de_Los_Angeles_2024.png",
   },
   {
@@ -158,6 +180,7 @@ export const datas = [
     name: "Los Angeles",
     club: "Lakers",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg",
   },
   {
@@ -165,6 +188,7 @@ export const datas = [
     name: "Phoenix",
     club: "Suns",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/d/dc/Phoenix_Suns_logo.svg",
   },
   {
@@ -172,6 +196,7 @@ export const datas = [
     name: "Sacramento",
     club: "Kings",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/c/c7/SacramentoKings.svg",
   },
   {
@@ -179,6 +204,7 @@ export const datas = [
     name: "Dallas",
     club: "Mavericks",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/9/97/Dallas_Mavericks_logo.svg",
   },
   {
@@ -186,6 +212,7 @@ export const datas = [
     name: "Houston",
     club: "Rockets",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/2/28/Houston_Rockets.svg",
   },
   {
@@ -193,6 +220,7 @@ export const datas = [
     name: "Memphis",
     club: "Grizzlies",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/f/f1/Memphis_Grizzlies.svg",
   },
   {
@@ -200,6 +228,7 @@ export const datas = [
     name: "New Orleans",
     club: "Pelicans",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/0/0d/New_Orleans_Pelicans_logo.svg",
   },
   {
@@ -207,6 +236,7 @@ export const datas = [
     name: "San Antonio",
     club: "Spurs",
     conference: "West",
+    liked: false,
     logo: "https://upload.wikimedia.org/wikipedia/en/a/a2/San_Antonio_Spurs.svg",
-  }
-]
+  },
+];

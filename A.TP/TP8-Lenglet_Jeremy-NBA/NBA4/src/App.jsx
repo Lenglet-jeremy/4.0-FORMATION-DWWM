@@ -1,36 +1,50 @@
 import { useState } from "react";
 import styles from "./App.module.scss";
-import Team from "./pages/Teams/Team";
 import Header from "./components/Header/Header";
+import Loading from "./components/Loading/Loading";
+import Team from "./pages/Teams/Team";
 import Users from "./pages/Users/Users";
-import {datas} from "./data"
-import Loading from "./components/Loading/Loading"
+import { datas } from "./data";
+import Favorites from "./pages/Favorites/Favorites";
 
 function App() {
-
-  const [teams, setTeams] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  setTimeout(() => {
-    setIsLoading(false);
-    setTeams(datas);
-  }, 500);
+  const [teams, setTeams] = useState(datas);
+  const [isLoading, setIsLoading] = useState(false);
+  // setTimeout(() => {
+  //   setIsLoading(false);
+  //   setTeams(datas);
+  // }, 1500);
   const [licensed, setLicensed] = useState(true);
   const [view, setView] = useState("all");
   const [filter, setFilter] = useState("");
-  const [showUsers, setShowUsers] = useState(false);
+  const [showPage, setShowPage] = useState("teams");
   const [user, setUser] = useState({
     name: "",
-    player: "",
+    age: "",
   });
   const [allUsers, setAllUsers] = useState([]);
-
-  function handleClickForm(e) {
+  function handleClick(e) {
     e.preventDefault();
     console.log(user);
     setAllUsers([...allUsers, { ...user }]);
+    resetForm();
+  }
+
+  function toggleLiked(i) {
+    setTeams(
+      teams.map((t, index) => (index + 1 === i ? { ...t, liked: !t.liked } : t))
+    );
+  }
+
+  function resetForm() {
+    setUser({
+      name: "",
+      player: "",
+    });
   }
 
   function handleInputUser(e) {
+    console.log(e.target.value);
     let value = e.target.value;
     const name = e.target.name;
     setUser({
@@ -38,29 +52,24 @@ function App() {
       [name]: value,
     });
   }
-
-  function handleClickDelete(id) {
-    console.log(id);
-    const newUserList = allUsers.filter((u, i) => i !== id);
-    setAllUsers(newUserList);
+  function login() {
+    setLicensed(!licensed);
   }
-
   function changeView(value) {
     setView(value);
   }
-
   function handleInput(e) {
     const value = e.target.value;
     console.log(value);
     setFilter(value.trim().toLowerCase());
   }
-
-  function handleToggleUsers() {
-    setShowUsers(!showUsers);
+  function handleTogglePages(value) {
+    setShowPage(value);
   }
-
-  function login() {
-    setLicensed(!licensed);
+  function handleClickDelete(i) {
+    console.log(i);
+    const newUserList = allUsers.filter((t, index) => index !== i);
+    setAllUsers(newUserList);
   }
 
   const person = {
@@ -69,32 +78,46 @@ function App() {
   };
   return (
     <div className={`d-flex align-items-center flex-column  ${styles.main}`}>
-      {showUsers ? (
+      {showPage === "users" ? (
         <Users
-          handleToggleUsers={handleToggleUsers}
+          showUsers={handleTogglePages}
+          handleClick={handleClick}
           handleInputUser={handleInputUser}
-          handleClickForm={handleClickForm}
           user={user}
           allUsers={allUsers}
           handleClickDelete={handleClickDelete}
         />
-      ) : (
+      ) : showPage === "teams" ? (
         <>
-          <Header changeView={changeView} handleInput={handleInput} />
-          {isLoading ? (
-            <Loading />
-          ) : (<Team
-            person={person}
-            teams={teams}
-            view={view}
+          <Header
+            changeView={changeView}
+            handleInput={handleInput}
             licensed={licensed}
             login={login}
-            filter={filter}
-            handleToggleUsers={handleToggleUsers}
+            handleTogglePages={handleTogglePages}
           />
-        ) }
-          </>
-      )}
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <Team
+              person={person}
+              teams={teams}
+              licensed={licensed}
+              login={login}
+              view={view}
+              filter={filter}
+              handleTogglePages={handleTogglePages}
+              toggleLiked={toggleLiked}
+            />
+          )}
+        </>
+      ) : showPage === "favorites" ? (
+        <Favorites
+          showUsers={handleTogglePages}
+          teams={teams}
+          toggleLiked={toggleLiked}
+        />
+      ) : null}
     </div>
   );
 }
