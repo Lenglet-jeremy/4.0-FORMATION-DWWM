@@ -1,7 +1,26 @@
 import React, { useState } from "react";
 
-function EditTodo({ todo, modifyTodo, cancelEdit }) {
+function EditTodo({ todo, updateTodo }) {
   const [valueTodo, setValueTodo] = useState(todo.content);
+
+  async function editOneTodo(newTodo) {
+    try {
+      const response = await fetch("http://localhost:5000/api/todos/update", {
+        method: "PATCH",
+        body: JSON.stringify(newTodo),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (response.ok) {
+        // const updatedTodo = await response.json();
+        // console.log({ updatedTodo });
+        updateTodo(newTodo);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   function handleChange(e) {
     setValueTodo(e.target.value);
@@ -9,7 +28,11 @@ function EditTodo({ todo, modifyTodo, cancelEdit }) {
 
   function handleClick() {
     if (valueTodo.length) {
-      modifyTodo(todo.id, valueTodo);
+      editOneTodo({
+        ...todo,
+        content: valueTodo,
+        edit: false,
+      });
     }
   }
   return (
@@ -21,7 +44,7 @@ function EditTodo({ todo, modifyTodo, cancelEdit }) {
         className="flex-fill mr-15"
       />
       <button
-        onClick={() => cancelEdit(todo.id)}
+        onClick={() => editOneTodo({ ...todo, edit: false })}
         className="btn btn-primary mr-15"
       >
         Annuler

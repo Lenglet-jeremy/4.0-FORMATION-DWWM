@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/Todolist";
+import { url } from "./url";
 
 function App() {
   // variable d'état pour stocker nos todos initialisée avec un tableau vide
   const [todolist, setTodolist] = useState([]);
-  // console.log(todolist);
 
   useEffect(() => {
     async function getTodos() {
       try {
-        const response = await fetch("http://localhost:5000/api/todos");
+        const response = await fetch(`${url}api/todos`);
         if (response.ok) {
           const todos = await response.json();
           setTodolist(todos);
@@ -29,50 +29,12 @@ function App() {
 
   // fonction pour supprimer une todo
   function deleteTodo(id) {
-    setTodolist(todolist.filter((todo) => todo.id !== id));
-  }
-
-  // méthode pour changer la valeur de done
-  function toggleTodoDone(id) {
-    setTodolist(
-      todolist.map((todo) =>
-        todo.id === id
-          ? {
-              ...todo,
-              done: !todo.done,
-            }
-          : todo
-      )
-    );
-  }
-
-  // méthode pour changer la valeur de edit
-  function toggleTodoEdit(id) {
-    setTodolist(
-      todolist.map((todo) =>
-        todo.id === id
-          ? {
-              ...todo,
-              edit: !todo.edit,
-            }
-          : todo
-      )
-    );
+    setTodolist(todolist.filter((todo) => todo._id !== id));
   }
 
   // méthode pour modifier une todo
-  function modifyTodo(id, content) {
-    setTodolist(
-      todolist.map((todo) =>
-        todo.id === id
-          ? {
-              ...todo,
-              content,
-              edit: false,
-            }
-          : todo
-      )
-    );
+  function updateTodo(newTodo) {
+    setTodolist(todolist.map((t) => (t._id === newTodo._id ? newTodo : t)));
   }
 
   return (
@@ -83,9 +45,7 @@ function App() {
         <TodoList
           todolist={todolist}
           deleteTodo={deleteTodo}
-          toggleTodoDone={toggleTodoDone}
-          toggleTodoEdit={toggleTodoEdit}
-          modifyTodo={modifyTodo}
+          updateTodo={updateTodo}
         />
       </div>
     </div>
