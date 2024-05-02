@@ -1,0 +1,51 @@
+.NavBarArea{
+    background-color: #070025;
+    color: #FFFFFF;
+
+    height: 60px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    p{
+        margin-left: 15px;
+    }
+
+    h2{
+        margin-left: 15px;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: row;
+    }
+
+    li{
+        list-style-type: none;
+        margin-left: 15px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .LeftSide{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        margin-left: 35px;
+    }
+
+    .RightSide{
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        margin-right: 35px;
+    }
+}
