@@ -37,17 +37,7 @@ export default function Yup() {
       .required("Vous devez confirmer votre mot de passe")
       .oneOf([yup.ref("password"), ""], "Les mots ne correspondent pas"),
   });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: "",
-    },
-    mode: "onChange",
-    resolver: yupResolver(schema),
-  });
+  const { register, handleSubmit, formState: { errors }, } = useForm({ defaultValues: { name: "", }, mode: "onChange", resolver: yupResolver(schema), });
 
   function submit(values) {
     console.log(values);
