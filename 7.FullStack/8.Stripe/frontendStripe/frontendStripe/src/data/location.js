@@ -1,0 +1,80 @@
+export const data = [
+  {
+    name: "Burglen, Suisse",
+    price: 249,
+    _id: 1,
+    image: "/images/house1.jpg",
+  },
+  {
+    name: "Ashington, Royaume-uni",
+    price: 2049,
+    _id: 2,
+    image: "/images/house2.jpg",
+  },
+  {
+    name: "Pelvoux, France",
+    price: 243,
+    _id: 3,
+    image: "/images/house3.jpg",
+  },
+  {
+    name: "Vorra, Allemagne",
+    price: 227,
+    _id: 4,
+    image: "/images/house4.jpg",
+  },
+  {
+    name: "Telve, Italie",
+    price: 339,
+    _id: 5,
+    image: "/images/house5.jpg",
+  },
+  {
+    name: "Alter, Belgique",
+    price: 990,
+    _id: 6,
+    image: "/images/house6.jpg",
+  },
+  {
+    name: "West Sussex, Royaume-Uni",
+    price: 307,
+    _id: 7,
+    image: "/images/house7.jpg",
+  },
+  {
+    name: "Gathemo, France",
+    price: 210,
+    _id: 8,
+    image: "/images/house8.jpg",
+  },
+  {
+    name: "Cers, Italie",
+    price: 126,
+    _id: 9,
+    image: "/images/house9.jpg",
+  },
+  {
+    name: "Genappe, Belgique",
+    price: 149,
+    _id: 10,
+    image: "/images/house10.jpg",
+  },
+  {
+    name: "Réotier, France",
+    price: 241,
+    _id: 11,
+    image: "/images/house11.jpg",
+  },
+  {
+    name: "Southampton, Royaume-Uni",
+    price: 209,
+    _id: 12,
+    image: "/images/house12.jpg",
+  },
+  {
+    name: "Brienno, Italie",
+    price: 1249,
+    _id: 13,
+    image: "/images/hobbit_house.webp",
+  },
+];
