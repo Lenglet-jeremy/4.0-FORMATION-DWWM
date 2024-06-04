@@ -1,0 +1,16 @@
+.pseudoContainer {
+  cursor: pointer;
+  color: rgb(46, 45, 45);
+  .pseudo {
+    font-weight: 700;
+    margin-left: 20px;
+    font-size: 20px;
+    &:hover {
+      color: white;
+    }
+  }
+  &:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+}
