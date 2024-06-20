@@ -1,22 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect, useInsertionEffect, useState } from 'react';
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect, useState } from "react";
 
 function App() {
   const [count, setCount] = useState();
+
   useEffect(() => {
-    async function fetchCount(){
+    async function fetchCount() {
       try {
         const response = await fetch("/api/count");
-        if(response.ok){
-          setCount(await response.json())
+        if (response.ok) {
+          setCount(await response.json());
         }
-        
       } catch (error) {
         console.log(error);
       }
     }
-  }, [])
+    fetchCount();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -31,7 +32,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React & Docker
         </a>
       </header>
     </div>
